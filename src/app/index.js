@@ -3,30 +3,26 @@ var ReactDOM = require("react-dom");
 
 // Creating cmp
 var TodoComponent = React.createClass({
+    getInitialState: function () {
+        return {
+            movies: ["Kill Bill", "The Hateful Eight", "Pulp Fiction"]
+        }
+    }, // getInitialState
+
     render: function () {
         return(
-            <div>
-                <h1>MOVIES LIST</h1>
-                <p>
-                    <strong>Movie name:&nbsp;</strong>{ this.props.movie.name }
-                </p>
-                <p>
-                    <strong>Movie rating:&nbsp;</strong>{ this.props.movie.rating }
-                </p>
-                <p>
-                    <strong>Movie income:&nbsp;</strong>{ this.props.movie.income }
-                </p>
-
+            <div id="movies-list">
+                <h1>The best QT movies in the world!</h1>
+                <ul>
+                    <li>{ this.state.movies[0] }</li>
+                    <li>{ this.state.movies[1] }</li>
+                    <li>{ this.state.movies[2] }</li>
+                </ul>
+                <ListComponent movies={ this.state.movies }/>
             </div>
         );
-    }
+    } // render
 });
 
-var myMovie = {
-    name: "Movie 1",
-    rating: 9.75,
-    income: "10M"
-}
-
 // Putting cmp into HTML
-ReactDOM.render(<TodoComponent movie={ myMovie }/>, document.getElementById("todo-wrapper"));
+ReactDOM.render(<TodoComponent />, document.getElementById("todo-wrapper"));
