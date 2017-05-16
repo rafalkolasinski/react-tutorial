@@ -18,7 +18,6 @@ var TodoComponent = React.createClass({
                     <li>{ this.state.movies[1] }</li>
                     <li>{ this.state.movies[2] }</li>
                 </ul>
-                <ListComponent movies={ this.state.movies }/>
             </div>
         );
     } // render
