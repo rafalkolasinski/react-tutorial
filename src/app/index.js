@@ -3,7 +3,7 @@ var ReactDOM = require("react-dom");
 require("./css/index.css");
 
 // ES2015
-import {Router, Route} from "react-router-dom";
+import {HashRouter, Route, Link} from "react-router-dom";
 
 // Module requires
 var MovieItem = require("./movieItem");
@@ -13,12 +13,12 @@ var AboutMovie = require("./aboutMovie");
 var App = React.createClass({
    render: function() {
        return(
-         <Router>
+         <HashRouter>
              <div>
                  <Route exact path={"/"} component={MoviesComponent}></Route>
                  <Route path={"/about"} component={AboutMovie}></Route>
              </div>
-         </Router>
+         </HashRouter>
        );
    }
 });
@@ -40,6 +40,7 @@ var MoviesComponent = React.createClass({
 
         return(
             <div id="movies-list">
+                <Link to={"/about"}>About</Link>
                 <h1>The best QT movies in the world!</h1>
                 <p>{this.state.rating}</p>
                 <ul>
