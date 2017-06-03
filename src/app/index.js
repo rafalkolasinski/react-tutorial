@@ -4,6 +4,7 @@ require("./css/index.css");
 
 // Module requires
 var MovieItem = require("./movieItem");
+var AddNewItem = require("./addNewMovie");
 
 // Creating Movies component
 var MoviesComponent = React.createClass({
@@ -27,6 +28,7 @@ var MoviesComponent = React.createClass({
                 <ul>
                     {movies}
                 </ul>
+                <AddNewItem onAdd={this.onAdd}/>
             </div>
         );
     }, // render
@@ -40,6 +42,15 @@ var MoviesComponent = React.createClass({
         this.setState({
             movies: updatedMovies
         });
+    },
+
+    onAdd: function(newMovie) {
+        var updatedMovies = this.state.movies;
+        updatedMovies.push(newMovie);
+
+        this.setState({
+            movies: updatedMovies
+        })
     }
 });
 

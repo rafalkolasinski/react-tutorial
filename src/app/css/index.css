@@ -15,7 +15,7 @@ body {
     color: #333;
 }
 
-#movies-wrapper p {
+#movies-wrapper h1 {
     color: #777;
     font-style: italic;
 }

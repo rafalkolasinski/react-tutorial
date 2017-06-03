@@ -1,0 +1,33 @@
+#add-movie {
+    display: flex;
+}
+
+#add-movie input[type="text"] {
+    flex-basis: 0;
+    flex-grow: 7;
+    padding: 10px;
+    border: 2px solid #7f4cc1;
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+    color: #777;
+}
+
+#add-movie input[type="text"]:focus,
+#add-movie input[type="submit"]:focus {
+    outline: none;
+}
+
+#add-movie input[type="submit"] {
+    flex-basis: 0;
+    flex-grow: 3;
+    padding: 10px;
+    background: #7f4cc1;
+    border: 2px solid #7f4cc1;
+    -webkit-border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
