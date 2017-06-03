@@ -2,9 +2,26 @@ var React = require("react");
 var ReactDOM = require("react-dom");
 require("./css/index.css");
 
+// ES2015
+import {Router, Route} from "react-router-dom";
+
 // Module requires
 var MovieItem = require("./movieItem");
 var AddNewItem = require("./addNewMovie");
+var AboutMovie = require("./aboutMovie");
+
+var App = React.createClass({
+   render: function() {
+       return(
+         <Router>
+             <div>
+                 <Route exact path={"/"} component={MoviesComponent}></Route>
+                 <Route path={"/about"} component={AboutMovie}></Route>
+             </div>
+         </Router>
+       );
+   }
+});
 
 // Creating Movies component
 var MoviesComponent = React.createClass({
@@ -14,7 +31,7 @@ var MoviesComponent = React.createClass({
         }
     }, // getInitialState
 
-    render: function () {
+    render: function() {
         var movies = this.state.movies.map(function(movie, index) {
            return(
                <MovieItem item={movie} key={index} onDelete={this.onDelete}/>
@@ -69,4 +86,4 @@ var MoviesComponent = React.createClass({
 });
 
 // Putting cmp into HTML
-ReactDOM.render(<MoviesComponent />, document.getElementById("movies-wrapper"));
+ReactDOM.render(<App />, document.getElementById("movies-wrapper"));
