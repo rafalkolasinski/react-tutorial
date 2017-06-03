@@ -1,8 +1,8 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
-// Creating cmp
-var TodoComponent = React.createClass({
+// Creating Movies component
+var MoviesComponent = React.createClass({
     getInitialState: function () {
         return {
             movies: ["Kill Bill", "The Hateful Eight", "Pulp Fiction", "Reservoir Dogs"]
@@ -12,9 +12,7 @@ var TodoComponent = React.createClass({
     render: function () {
         var movies = this.state.movies.map(function(movie, index) {
            return(
-               <li key={movie.toString()}>
-                   <strong>{ index + 1 }&#58;</strong> { movie }
-               </li>
+               <MovieItem item={ movie } key={ index }/>
            );
         });
 
@@ -30,5 +28,20 @@ var TodoComponent = React.createClass({
     } // render
 });
 
+// Creating MovieItem component
+var MovieItem = React.createClass({
+   render: function() {
+       return(
+           <li>
+               <div className="movie-item">
+                   <span className="movie-item-name">
+                       { this.props.item }
+                   </span>
+               </div>
+           </li>
+       );
+   }
+});
+
 // Putting cmp into HTML
-ReactDOM.render(<TodoComponent />, document.getElementById("todo-wrapper"));
+ReactDOM.render(<MoviesComponent />, document.getElementById("movies-wrapper"));
