@@ -51,6 +51,20 @@ var MoviesComponent = React.createClass({
         this.setState({
             movies: updatedMovies
         })
+    },
+
+    // Lifecycle functions
+    componentWillMount: function() {
+        console.log("Component will mount.");
+    },
+
+    componentDidMount: function() {
+        console.log("Component did mount.");
+        // good moment for loading external data
+    },
+
+    componentWillUpdate: function() {
+        console.log("Component will update.");
     }
 });
 
