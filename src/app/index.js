@@ -1,5 +1,9 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
+require("./css/index.css");
+
+// Module requires
+var MovieItem = require("./movieItem");
 
 // Creating Movies component
 var MoviesComponent = React.createClass({
@@ -36,27 +40,6 @@ var MoviesComponent = React.createClass({
         this.setState({
             movies: updatedMovies
         });
-    }
-});
-
-// Creating MovieItem component
-var MovieItem = React.createClass({
-   render: function() {
-       return(
-           <li>
-               <div className="movie-item">
-                   <span className="item-name">
-                       {this.props.item}
-                   </span>
-                   <span className="item-delete" onClick={this.handleDelete}>[X]</span>
-               </div>
-           </li>
-       );
-   },
-
-    // Custom functions
-    handleDelete: function() {
-        this.props.onDelete(this.props.item);
     }
 });
 
