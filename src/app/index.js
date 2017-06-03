@@ -5,14 +5,22 @@ var ReactDOM = require("react-dom");
 var TodoComponent = React.createClass({
     getInitialState: function () {
         return {
-            movies: ["Kill Bill", "The Hateful Eight", "Pulp Fiction"]
+            movies: ["Kill Bill", "The Hateful Eight", "Pulp Fiction"],
+            rating: 7
         }
     }, // getInitialState
 
     render: function () {
+        var changeRating = setTimeout(function() {
+            this.setState({
+                rating: 10
+            })
+        }.bind(this), 5000);
+
         return(
             <div id="movies-list">
                 <h1>The best QT movies in the world!</h1>
+                <p>{ this.state.rating }</p>
                 <ul>
                     <li>{ this.state.movies[0] }</li>
                     <li>{ this.state.movies[1] }</li>
